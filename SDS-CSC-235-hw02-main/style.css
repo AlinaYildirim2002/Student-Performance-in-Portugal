@@ -1,0 +1,138 @@
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
+  margin: 0;
+  background: #f7f8fb;
+  color: #111827;
+  line-height: 1.6;
+}
+
+/* Make links look nicer */
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header*/
+header {
+  padding: 42px 24px;
+  background: linear-gradient(135deg, #111827, #1f2937);
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.1rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin-top: 10px;
+  color: rgba(255,255,255,0.85);
+  max-width: 750px;
+}
+
+/* Main layout*/
+main {
+  padding: 28px 20px 40px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+section {
+  margin-top: 26px;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+}
+
+
+/* Cards + grid*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.card {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  padding: 16px 16px 14px;
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+
+/*  Images */
+.viz {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 24, 39, 0.10);
+  background: white;
+  margin: 8px 0 10px;
+}
+
+/* Hover requirement: highlight an element */
+.viz:hover,
+.hypothesis:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 34px rgba(17, 24, 39, 0.12);
+  border-color: rgba(37, 99, 235, 0.28);
+}
+
+/* Make relationship “main” card stand out a bit */
+#relationship-img {
+  border-radius: 14px;
+}
+
+/*  Buttons */
+button {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 24, 39, 0.15);
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+button:hover {
+  background: #f3f4f6;
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.10);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0px);
+  box-shadow: none;
+}
+
+/* Small text */
+.note {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-top: 10px;
+}
+
+/* Footer */
+footer {
+  padding: 22px;
+  text-align: center;
+  color: #6b7280;
+  border-top: 1px solid rgba(17, 24, 39, 0.08);
+  margin-top: 40px;
+}
