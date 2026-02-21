@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HW02 – Student Performance EDA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Student Performance in Exams</h1>
+      <p class="subtitle">
+        An exploratory data analysis of student performance using the UCI Student Performance dataset for Math and Portuguese students.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Dataset Overview -->
+      <section>
+        <h2>Dataset overview</h2>
+        <p>
+          This project uses the UCI Student Performance dataset, which contains information about secondary school students in Portugal.
+          The dataset includes background information about students, their study habits and lifestyle, and their academic performance.
+        </p>
+
+        <p>
+          The data originally comes in two separate files: one for Math and one for Portuguese.
+          I combined both datasets and added a <code>subject</code> column so it is clear which class each observation comes from.
+          The final dataset includes 1,044 students.
+        </p>
+
+        <p>
+          Source:
+          <a href="https://archive.ics.uci.edu/dataset/320/student+performance" target="_blank">
+            UCI Student Performance Dataset
+          </a>
+        </p>
+      </section>
+
+      <!-- Bias -->
+      <section>
+        <h2>Bias / limitations</h2>
+        <ul>
+          <li>The data only includes students from a small number of schools in Portugal, so results may not generalize to other populations.</li>
+          <li>Some variables (such as study time and health) are self-reported and may not be perfectly accurate.</li>
+          <li>This is observational data, so the results show associations rather than cause-and-effect relationships.</li>
+        </ul>
+      </section>
+
+      <!-- Variables -->
+      <section>
+        <h2>Summary (variables used)</h2>
+        <ul>
+          <li><strong>G3</strong> – final course grade (0–20)</li>
+          <li><strong>absences</strong> – number of missed school days</li>
+          <li><strong>studytime</strong> – weekly study time (1–4 scale)</li>
+          <li><strong>health</strong> – self-reported health (1–5 scale)</li>
+          <li><strong>sex</strong> – student gender</li>
+          <li><strong>internet</strong> – internet access at home</li>
+        </ul>
+      </section>
+
+      <!-- Summary statistics -->
+      <section>
+        <h2>Summary statistics</h2>
+        <p>
+          The tables below summarize two quantitative variables (G3, absences), two ordinal variables (studytime, health),
+          and two categorical variables (sex, internet).
+        </p>
+
+        <div class="grid">
+          <!-- Big card ONLY on wide screens (CSS will control this) -->
+          <div class="card span-2">
+            <h3>G3 and absences</h3>
+            <img class="viz" src="images/G3 and absences statistic.png" alt="G3 and absences summary" />
+            <p class="note">
+              The average final grade is 11.3 (on a 0–20 scale), so most students perform in the middle range.
+              Absences vary widely (mean = 4.4, max = 75), meaning most students miss few days but a small group misses a lot.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Studytime levels</h3>
+            <img class="viz" src="images/studytime_level.png" alt="Studytime summary" />
+            <p class="note">
+              Most students report low to moderate study time, with many studying 2–5 hours per week.
+              Only a small group studies more than 10 hours.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Health levels</h3>
+            <img class="viz" src="images/health_level.png" alt="Health summary" />
+            <p class="note">
+              Health ratings lean positive overall, with most students reporting average to very good health.
+              The largest group rated their health at the highest level.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Sex</h3>
+            <img class="viz" src="images/sex.png" alt="Sex summary" />
+            <p class="note">
+              The dataset includes slightly more female students (56.6%) than male students (43.4%).
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Internet access</h3>
+            <img class="viz" src="images/internet.png" alt="Internet summary" />
+            <p class="note">
+              Most students (about 79%) report having internet access at home, while about 21% do not.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Distributions -->
+      <section>
+        <h2>Distributions</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Final grade (G3)</h3>
+            <img class="viz" src="images/g3_hist.png" alt="Histogram of G3" />
+            <p class="note">
+              Most students cluster around mid-range grades (roughly 10–14), with fewer students at the extremes.
+              There is also a small spike at 0, which may reflect students who failed or did not complete the course.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Absences</h3>
+            <img class="viz" src="images/absences_hist.png" alt="Histogram of absences" />
+            <p class="note">
+              Absences are strongly right-skewed: most students miss only a few days, but a small number of students
+              have very high absence counts.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Studytime</h3>
+            <img class="viz" src="images/studytime_bar.png" alt="Studytime distribution" />
+            <p class="note">
+              The most common studytime level is 2 (2–5 hours per week), followed by level 1 (&lt;2 hours).
+              Levels 3–4 are much less common.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Health</h3>
+            <img class="viz" src="images/health_bar.png" alt="Health distribution" />
+            <p class="note">
+              Health ratings lean positive overall. The highest category (5) is the most frequent,
+              while low health ratings (1–2) are less common.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Sex</h3>
+            <img class="viz" src="images/sex_bar.png" alt="Sex distribution" />
+            <p class="note">
+              The dataset contains slightly more female students than male students, but the split is not extreme.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Internet</h3>
+            <img class="viz" src="images/internet_bar.png" alt="Internet distribution" />
+            <p class="note">
+              Most students report having internet access at home, which could affect access to learning resources.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Relationships -->
+      <section>
+        <h2>Relationships</h2>
+        <p>
+          I looked at a few relationships to see which factors might be connected to final grades.
+        </p>
+
+        <div class="card">
+          <h3 id="relationship-title">Final grade by studytime</h3>
+          <img id="relationship-img" class="viz" src="images/g3_studytime.png" alt="Relationship plot" />
+          <p id="relationship-caption">
+            Students who report higher studytime tend to have slightly higher median final grades.
+          </p>
+
+          <button id="nextPlotBtn">Next relationship plot</button>
+          <p class="note">Click to cycle through the relationship plots.</p>
+        </div>
+      </section>
+
+      <!-- Hypotheses -->
+      <section>
+        <h2>Testable hypotheses</h2>
+
+        <div class="grid">
+          <div class="card hypothesis">
+            <h3>Hypothesis 1</h3>
+            <p>
+              Students who study more (levels 3–4) will have higher average final grades than those who study less (levels 1–2).
+            </p>
+          </div>
+
+          <div class="card hypothesis">
+            <h3>Hypothesis 2</h3>
+            <p>
+              A higher number of absences will be associated with lower final grades.
+            </p>
+          </div>
+
+          <div class="card hypothesis">
+            <h3>Hypothesis 3</h3>
+            <p>
+              Students with internet access will have higher grades, and the effect may differ between Math and Portuguese.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>HW02 — SDS/CSC 235</p>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
